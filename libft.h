@@ -1,41 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 17:36:41 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/02 16:11:35 by mschaub          ###   ########.fr       */
+/*   Created: 2022/12/02 19:54:54 by mschaub           #+#    #+#             */
+/*   Updated: 2022/12/02 20:11:07 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
-#include <stddef.h>
+#ifndef LIBFT_H
+# define LIBFT_H
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
-{
-	int	i;
+# include <stddef.h>
 
-	if (!src || !dest)
-		return (0);
-	if (dest > src)
-	{
-		i = (int)n - 1;
-		while (i >= 0)
-		{
-			*(char *)(dest + i) = *(char *)(src + 1);
-			i--;
-		}
-	}
-	else
-	{
-		i = 0;
-		while (i < (int)n)
-		{
-			*(char *)(dest + i) = *(char *)(src + i);
-			i++;
-		}
-	}
-	return (dest);
-}
+int		ft_atoi(char *str);
+void	ft_bzero(void *s, size_t n);
+void	*calloc(size_t nmemb, size_t size);
+int		isalnum(int c);
+int		ft_isalpha(int c);
+
+#endif
