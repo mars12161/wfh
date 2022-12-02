@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 17:36:41 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/02 16:11:35 by mschaub          ###   ########.fr       */
+/*   Created: 2022/11/30 18:01:30 by mschaub           #+#    #+#             */
+/*   Updated: 2022/12/02 20:00:59 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
+#include "libft.h"
 #include <stddef.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int	i;
+	size_t	i;
+	size_t	ret;
 
-	if (!src || !dest)
-		return (0);
-	if (dest > src)
+	i = 0;
+	while (*dst && i < size)
 	{
-		i = (int)n - 1;
-		while (i >= 0)
-		{
-			*(char *)(dest + i) = *(char *)(src + 1);
-			i--;
-		}
+		dst++;
+		i++;
 	}
-	else
-	{
-		i = 0;
-		while (i < (int)n)
-		{
-			*(char *)(dest + i) = *(char *)(src + i);
-			i++;
-		}
-	}
-	return (dest);
+	ret = ft_strlcpy(dst, src, size - i);
+	return (ret + 1);
 }
