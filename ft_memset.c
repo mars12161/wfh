@@ -6,11 +6,11 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:24:05 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/02 17:23:16 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/03 15:04:06 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
+#include "libft.h"
 #include <stddef.h>
 
 void	*ft_memset(void *s, int c, size_t n)

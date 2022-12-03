@@ -6,13 +6,11 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 18:10:16 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/02 20:00:50 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/02 20:19:40 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stddef.h>
-#include <stdlib.h>
 
 void	*calloc(size_t nmemb, size_t size)
 {
