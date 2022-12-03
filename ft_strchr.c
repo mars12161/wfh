@@ -6,11 +6,11 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:43:29 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/02 16:19:08 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/03 15:04:06 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
