@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 16:03:49 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/03 17:17:12 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/04 14:52:50 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,23 @@ static int	ft_checkset(char c, const char *set)
 
 char	*ft_strtrim(const char *s1, const char *set)
 {
-	char *ret;
-	char *start;
-	char *end;
-	if (!s1 || !set)
+	char	*ret;
+	size_t 	i;
+	size_t 	start;
+	size_t	end;
+
+	start = 0;
+	while (s1[start] && ft_checkset(s1[start], set))
+		start++;
+	end = ft_strlen(s1);
+	while (end > start && ft_checkset(s1[end - 1], set))
+		end--;
+	ret = (char *)malloc(sizeof(*s1) * (end - start + 1));
+	if (!ret)
 		return (NULL);
-	start = (char *)s1;
-	end =  start + ft_strlen(s1);
+	i = 0;
+	while (start < end)
+		ret[i++] = s1[start++];
+	ret[i] = 0;
+	return (ret);
 }

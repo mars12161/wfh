@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mschaub <mschaub@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 15:58:02 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/03 15:04:06 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/04 13:56:37 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_atoi(char *str)
 	while (str[i] != '\0' && (str[i] >= '0' && str[i] <= '9'))
 	{
 		if (str[i] >= '0' && str[i] <= '9')
-			retval = retval * 10 + str[i] - '0';
+			retval = (retval * 10) + (str[i] - '0');
 		i++;
 	}
 	return (retval * neg);

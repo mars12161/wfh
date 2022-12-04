@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mschaub <mschaub@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 15:01:49 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/04 12:08:41 by mschaub          ###   ########.fr       */
+/*   Created: 2022/12/04 14:09:27 by mschaub           #+#    #+#             */
+/*   Updated: 2022/12/04 14:17:00 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_isalnum(int c)
+char    **ft_split(const char *s, char c)
 {
-	return (ft_isdigit(c) || ft_isalpha(c));
+    int i;
+    char    **ret;
+
+    i = 0;
+    while (s[i])
+    {
+        if (s[i] == c)
+        {
+            
+        }
+    }
 }

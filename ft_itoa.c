@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mschaub <mschaub@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 15:01:49 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/04 12:08:41 by mschaub          ###   ########.fr       */
+/*   Created: 2022/12/04 15:05:13 by mschaub           #+#    #+#             */
+/*   Updated: 2022/12/04 20:53:45 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+char    *ft_itoa(int n)
 {
-	return (ft_isdigit(c) || ft_isalpha(c));
+    
 }
