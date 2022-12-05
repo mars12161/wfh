@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:43:29 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/03 15:04:06 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/05 18:21:29 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strchr(const char *s, int c)
 
 	i = 0;
 	if (!s)
-		return (0);
+		return (NULL);
 	while (s[i])
 	{
 		if (s[i] == c)

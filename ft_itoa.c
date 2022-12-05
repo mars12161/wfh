@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 15:05:13 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/04 20:53:45 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/05 18:27:07 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,11 @@
 
 char    *ft_itoa(int n)
 {
-    
+    char *ret;
+	size_t len;
+
+	ret = malloc(sizeof(char));
+	if (!ret)
+		return (NULL);
+	if (n == -2147483648)
 }

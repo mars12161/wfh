@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mschaub <mschaub@student.42berlin.de>      +#+  +:+       +#+         #
+#    By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 17:35:04 by mschaub           #+#    #+#              #
-#    Updated: 2022/12/04 13:03:00 by mschaub          ###   ########.fr        #
+#    Updated: 2022/12/05 14:41:47 by mschaub          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,12 @@ SRC =	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 		ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c \
 		ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c
 
-OBJS = $(SRC:c=o)
+OBJS = $(SRC:*.c=*.o)
 
 all: $(NAME)
 
 $(NAME):
-	ar rcs $(NAME) $(SRC)
+	ar -rc $(NAME) $(SRC)
 
 clean:
 	rm -f *.o

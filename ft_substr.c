@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:00:56 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/04 14:48:44 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/05 18:16:33 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	ft_strlcpy(ret, &s[start], len + 1);
 	return (ret);
+}
+#include <stdio.h>
+
+int main(){
+	char *test;
+
+	test = ft_substr("this is a string", 0, 5);
+	printf("%s\n", test);
 }
