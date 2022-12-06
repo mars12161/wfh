@@ -6,21 +6,65 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 14:09:27 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/04 14:17:00 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/05 18:40:01 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char    **ft_split(const char *s, char c)
-{
-    int i;
-    char    **ret;
+#include "libft.h"
 
-    i = 0;
-    while (s[i])
-    {
-        if (s[i] == c)
-        {
-            
-        }
-    }
+static size_t	ft_count_word(const char *s, char c)
+{
+	int		i;
+	size_t	words;
+
+	i = 0;
+	words = 1;
+	while (s[i] != '\0')
+	{
+		if (s[i] == c)
+			words++;
+		i++;
+	}
+	return (words);
 }
+
+char	**ft_split(const char *s, char c)
+{
+	char	**ret;
+	size_t	len;
+	size_t	i;
+
+	if (!s)
+		return (NULL);
+	i = 0;
+	ret = malloc(sizeof(char *) * (ft_count_word(s, c) + 1));
+	while (*s)
+	{
+		if (*s != c)
+		{
+			len = 0;
+			while (*s && *s != c && ++len)
+				++s;
+			ret[i++] = ft_substr(s - len, 0, len);
+		}
+		else
+			++s;
+	}
+	ret[i] = 0;
+	return (ret);
+}
+
+
+#include <stdio.h>
+
+int	main() {
+	char *a = "123abc456cba";
+	char c = 'b';
+
+	char **test = ft_split(a, c);
+	for (int i = 0; i < ft_count_word(a, c); ++i)
+	{
+		printf("%s\n", test[i]);
+	}
+}
+
