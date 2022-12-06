@@ -6,7 +6,7 @@
 #    By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 17:35:04 by mschaub           #+#    #+#              #
-#    Updated: 2022/12/05 14:41:47 by mschaub          ###   ########.fr        #
+#    Updated: 2022/12/06 11:58:11 by mschaub          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ OBJS = $(SRC:*.c=*.o)
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(OBJS)
 	ar -rc $(NAME) $(SRC)
 
 clean:
