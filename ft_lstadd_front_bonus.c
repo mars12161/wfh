@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 11:20:44 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/06 19:46:20 by mschaub          ###   ########.fr       */
+/*   Created: 2022/12/07 15:31:05 by mschaub           #+#    #+#             */
+/*   Updated: 2022/12/08 14:49:37 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	size_t	i;
-
-	i = 0;
-	if (n == 0)
-		return (0);
-	while (s1[i] != '\0' && s1[i] == s2[i] && i < n -1)
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+    if (lst && new)
+    {
+        new->next = *lst;
+        *lst = new;
+    }
 }
-
-/*
-#include <stdio.h>
-#include <string.h>
-
-int main()
-{
-	int i = ft_strncmp("test\200", "test\0", 6);
-	int j = strncmp("test\200", "test\0", 6);
-	printf("%i\n%i\n", i, j);
-}
-*/

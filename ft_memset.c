@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:24:05 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/03 15:04:06 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/06 18:03:15 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ void	*ft_memset(void *s, int c, size_t n)
 		*(unsigned char *)(s + i) = (unsigned char)c;
 		i++;
 	}
+	return (s);
 }

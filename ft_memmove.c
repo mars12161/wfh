@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 17:36:41 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/03 15:04:06 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/06 18:44:46 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,17 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int	i;
-
 	if (!src || !dest)
 		return (0);
-	if (dest > src)
+	if (dest < src)
 	{
-		i = (int)n - 1;
-		while (i >= 0)
-		{
-			*(char *)(dest + i) = *(char *)(src + 1);
-			i--;
-		}
+		ft_memcpy(dest, src, n);
 	}
 	else
 	{
-		i = 0;
-		while (i < (int)n)
+		while (n--)
 		{
-			*(char *)(dest + i) = *(char *)(src + i);
-			i++;
+			((char *)dest)[n] = ((char *)src)[n];
 		}
 	}
 	return (dest);

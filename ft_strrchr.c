@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 17:15:05 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/05 16:33:18 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/06 18:56:28 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ char	*ft_strrchr(const char *s, int c)
 			i--;
 		}
 	}
-	return (0);
+	return ((char *) NULL);
 }

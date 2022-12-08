@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 11:20:44 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/06 19:46:20 by mschaub          ###   ########.fr       */
+/*   Created: 2022/12/06 20:00:11 by mschaub           #+#    #+#             */
+/*   Updated: 2022/12/06 20:17:54 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
+	char			*ret;
+	unsigned int	i;
 
 	i = 0;
-	if (n == 0)
-		return (0);
-	while (s1[i] != '\0' && s1[i] == s2[i] && i < n -1)
+	ret = malloc(sizeof(char) * ft_strlen(s) + 1);
+	if (!s)
+		return (NULL);
+	if (!ret)
+		return (NULL);
+	while (s[i] != '\0')
+	{
+		ret[i] = f(i, s[i]);
 		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	}
+	ret[i] = '\0';
+	return (ret);
 }
-
-/*
-#include <stdio.h>
-#include <string.h>
-
-int main()
-{
-	int i = ft_strncmp("test\200", "test\0", 6);
-	int j = strncmp("test\200", "test\0", 6);
-	printf("%i\n%i\n", i, j);
-}
-*/

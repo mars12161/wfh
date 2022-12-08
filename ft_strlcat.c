@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:01:30 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/02 20:00:59 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/06 19:23:03 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,26 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
+	size_t	len_dst;
+	size_t	len_src;
 	size_t	i;
-	size_t	ret;
 
-	i = 0;
-	while (*dst && i < size)
+	len_dst = ft_strlen(dst);
+	len_src = ft_strlen(src);
+	i = size;
+	while (*dst)
 	{
 		dst++;
-		i++;
+		if (i > 0)
+			i--;
 	}
-	ret = ft_strlcpy(dst, src, size - i);
-	return (ret + 1);
+	while (*src && i > 1)
+	{
+		*dst++ = *src++;
+		i--;
+	}
+	*dst = '\0';
+	if (size > len_dst)
+		return (len_dst + len_src);
+	return (size + len_src);
 }

@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 16:03:49 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/05 15:17:50 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/06 15:13:33 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 	return (ret);
 }
 
+/*
 #include <stdio.h>
 
 int	main()
@@ -52,3 +53,4 @@ int	main()
 	const char *test = ft_strtrim("temporary string", "teng");
 	printf("%s\n", test);
 }
+*/

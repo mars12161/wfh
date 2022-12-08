@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 14:09:27 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/06 12:12:36 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/06 15:12:37 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	**ft_split(const char *s, char c)
 	return (ret);
 }
 
-
+/*
 #include <stdio.h>
 
 int	main() {
@@ -68,4 +68,4 @@ int	main() {
 	}
 	printf("test");
 }
-
+*/
