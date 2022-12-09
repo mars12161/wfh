@@ -6,13 +6,13 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 15:58:02 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/05 14:45:41 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/09 18:00:34 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	neg;
@@ -36,3 +36,20 @@ int	ft_atoi(char *str)
 	}
 	return (retval * neg);
 }
+
+/*
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+	printf("%i\n", ft_atoi("415"));
+	printf("%i\n", atoi("415"));
+	printf("%i\n", ft_atoi("-831934"));
+	printf("%i\n", atoi("-831934"));
+	printf("%i\n", ft_atoi("2147483647"));
+	printf("%i\n", atoi("2147483647"));
+	printf("%i\n", ft_atoi("-2147483648"));
+	printf("%i\n", atoi("-2147483648"));
+
+}
+*/

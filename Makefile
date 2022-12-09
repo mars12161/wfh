@@ -6,15 +6,19 @@
 #    By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 17:35:04 by mschaub           #+#    #+#              #
-#    Updated: 2022/12/08 15:03:58 by mschaub          ###   ########.fr        #
+#    Updated: 2022/12/09 15:14:07 by mschaub          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -c
 
-CC = gcc
+CC = cc
 
 NAME = 		libft.a
+
+HEADER = 	libft.h
+
+RM =		rm -f
 
 SRC =		ft_atoi.c \
 			ft_bzero.c \
@@ -51,26 +55,38 @@ SRC =		ft_atoi.c \
 			ft_striteri.c \
 			ft_strmapi.c
 
-SRCBONUS =	ft_lstnew.c \
-			ft_lstadd_front.c \
-			ft_lstsize.c \
-			ft_lstlast.c \
-			ft_lstadd_back.c \
-			
+BONUS =		ft_lstnew_bonus.c \
+			ft_lstadd_front_bonus.c \
+			ft_lstsize_bonus.c \
+			ft_lstlast_bonus.c \
+			ft_lstadd_back_bonus.c \
+			ft_lstdelone_bonus.c \
+			ft_lstclear_bonus.c \
+			ft_lstiter_bonus.c \
+			ft_lstmap_bonus.c
 
 OBJS = 		$(SRC:.c=.o)
 
-OBJSBONUS =	$(SRCBONUS:.c=.o)
+OBJSBONUS =	$(BONUS:.c=.o)
 
 all: 		$(NAME)
 
+.c.o:		
+	$(CC) $(CFLAGS) $< -o $(<:.c=.o)
+
 $(NAME): 	$(OBJS)
-	ar -rc $(NAME) $(OBJS)
+	ar -rcs $(NAME) $^
+
+bonus:		$(OBJS) $(OBJSBONUS)
+	ar -rcs	$(NAME) $^
 
 clean:
-	rm -f *.o
+	$(RM) $(OBJS) $(OBJSBONUS)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
+
+
+.PHONY:		all clean fclean re bonus

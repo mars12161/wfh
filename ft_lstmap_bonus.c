@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 15:17:45 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/09 17:35:48 by mschaub          ###   ########.fr       */
+/*   Created: 2022/12/08 16:12:27 by mschaub           #+#    #+#             */
+/*   Updated: 2022/12/09 15:16:42 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int c)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	return (c >= 32 && c <= 126);
+	t_list	*ret;
+	t_list	*new_elem;
+
+	if (!f || !del)
+		return (NULL);
+	ret = NULL;
+	while (lst)
+	{
+		if (!(new_elem = ft_lstnew(f(lst->content))))
+		{
+			ft_lstclear(&ret, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&ret, new_elem);
+		lst = lst->next;
+	}
+	return (ret);
 }

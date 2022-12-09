@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 15:05:13 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/06 16:09:28 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/09 18:31:36 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,13 @@ char	*ft_itoa(int n)
 
 int main() {
 	char *num;
-	num = ft_itoa(0);
+	num = ft_itoa(2147483647);
+	printf("%s\n", num);
+	num = ft_itoa(-450);
+	printf("%s\n", num);
+	num = ft_itoa(-2147483648);
+	printf("%s\n", num);
+	num = ft_itoa(2222);
 	printf("%s\n", num);
 }
 */

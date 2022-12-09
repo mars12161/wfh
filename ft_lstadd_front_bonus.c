@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:31:05 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/08 14:49:37 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/08 16:02:56 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-    if (lst && new)
-    {
-        new->next = *lst;
-        *lst = new;
-    }
+	if (lst && new)
+	{
+		new->next = *lst;
+		*lst = new;
+	}
 }
