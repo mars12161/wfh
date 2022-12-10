@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 14:09:27 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/09 16:37:43 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/10 19:15:37 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,18 @@ static size_t	ft_count_word(const char *s, char c)
 	return (words);
 }
 
+static void	free_all(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (*str)
+	{
+		free(str);
+		str++;
+	}
+}
+
 char	**ft_split(const char *s, char c)
 {
 	char	**ret;
@@ -38,6 +50,8 @@ char	**ft_split(const char *s, char c)
 		return (NULL);
 	i = 0;
 	ret = malloc(sizeof(char *) * (ft_count_word(s, c) + 1));
+	if (!ret)
+		return (NULL);
 	while (*s)
 	{
 		if (*s != c)
@@ -46,6 +60,8 @@ char	**ft_split(const char *s, char c)
 			while (*s && *s != c && ++len)
 				++s;
 			ret[i++] = ft_substr(s - len, 0, len);
+			if (ret[i] == NULL)
+				free_all(ret);
 		}
 		else
 			++s;

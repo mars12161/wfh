@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:12:27 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/09 15:16:42 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/09 19:14:18 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	ret = NULL;
 	while (lst)
 	{
-		if (!(new_elem = ft_lstnew(f(lst->content))))
+		new_elem = ft_lstnew(f(lst->content));
+		if (!new_elem)
 		{
 			ft_lstclear(&ret, del);
 			return (NULL);
