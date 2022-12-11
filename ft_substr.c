@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:00:56 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/06 15:13:19 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/11 14:46:18 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (ret);
 }
 
-/*
-#include <stdio.h>
+/* #include <stdio.h>
 int main(){
 	char *test;
 
-	test = ft_substr("this is a string", 0, 5);
+	test = ft_substr("42", 0, 2);
 	printf("%s\n", test);
-}
-*/
+} */

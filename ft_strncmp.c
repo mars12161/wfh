@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 11:20:44 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/06 19:46:20 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/11 14:49:27 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	i = 0;
 	if (n == 0)
 		return (0);
-	while (s1[i] != '\0' && s1[i] == s2[i] && i < n -1)
+	while (s1[i] != '\0' && s1[i] == s2[i] && i < n - 1)
 		i++;
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 15:05:13 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/09 18:31:36 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/11 14:45:51 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,31 @@ static void	ft_revstr(char *str)
 	}
 }
 
+static int	count_digits(int n)
+{
+	int	counter;
+	int	number;
+
+	counter = 0;
+	number = ft_abs(n);
+	if (n < 0)
+		counter++;
+	while (number > 0)
+	{
+		number = number / 10;
+		counter++;
+	}
+	return (counter);
+}
+
 char	*ft_itoa(int n)
 {
 	size_t	len;
 	char	*ret;
 	int		negative;
+	int		digits;
 
+	digits = count_digits(n);
 	len = 0;
 	negative = (n < 0);
 	ret = ft_calloc(12, sizeof(*ret));
@@ -61,7 +80,7 @@ char	*ft_itoa(int n)
 	return (ret);
 }
 
-/*
+/* 
 #include <stdio.h>
 
 int main() {
@@ -75,4 +94,4 @@ int main() {
 	num = ft_itoa(2222);
 	printf("%s\n", num);
 }
-*/
+ */
