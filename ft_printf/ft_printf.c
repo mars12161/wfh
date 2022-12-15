@@ -6,41 +6,54 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 14:06:14 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/14 17:42:57 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/15 17:24:09 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_args_num(va_list args, const char format)
+int	ft_len_of_print(va_list args, const char format)
 {
-	int num_of_args;
+	int	len;
 
-	num_of_args = 0;
+	len = 0;
 	if (format == 'c')
-		num_of_args += 1;
+		len += ft_printchar(va_arg(args, int));
 	else if (format == 's')
-		num_of_args += 1;
+		len += ft_printstr(va_arg(args, char *));
 	else if (format == 'p')
-		num_of_args += 1;
-	else if (format == 'd')
-		num_of_args += 1;
-	else if (format == 'i')
-		num_of_args += 1;
+		len += 1;
+	else if (format == 'i' || format == 'd')
+		len += ft_printnbr(va_arg(args, int));
 	else if (format == 'u')
-		num_of_args += 1;
+		len += 1;
 	else if (format == 'x' || format == 'X')
-		num_of_args += 1;
+		len += ft_printhex(va_arg(args, unsigned int), format);
 	else if (format == '%')
-		num_of_args += 1;
-	return (num_of_args);
+		len += ft_printperc();
+	return (len);
 }
-
 
 int	ft_printf(const char *str, ...)
 {
-	char *test;
+	va_list	args;
+	int		i;
+	int		len;
 
-	test = (char *)str;
-	ft_printstr(test);
+	i = 0;
+	len = 0;
+	va_start(args, str);
+	while (str[i])
+	{
+		if (str[i] == '%')
+		{
+			len += ft_len_of_print(args, str[i + 1]);
+			i++;
+		}
+		else
+			len += ft_printchar(str[i]);
+		i++;
+	}
+	va_end(args);
+	return (len);
 }

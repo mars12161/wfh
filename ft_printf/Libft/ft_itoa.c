@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 15:05:13 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/14 12:18:30 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/15 13:07:11 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ static int	count_digits(int n)
 	number = ft_abs(n);
 	if (n == 0)
 		return (1);
+	if (n == -2147483648)
+		return (11);
 	if (n < 0)
 		counter++;
 	while (number > 0)
@@ -69,8 +71,6 @@ char	*ft_itoa(int n)
 	ret = malloc(digits * sizeof(char) + 1);
 	if (!ret)
 		return (NULL);
-	if (n == -2147483648)
-		return ("-2147483648");
 	ret[digits] = '\0';
 	if (n == 0)
 		ret[0] = '0';

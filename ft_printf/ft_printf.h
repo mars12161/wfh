@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:12:56 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/14 17:40:05 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/15 17:18:16 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-void	ft_printstr(char *str);
+int		ft_printstr(char *str);
+int		ft_printchar(int c);
+int		ft_printperc(void);
+int		ft_printhex(unsigned int num, const char format);
 
 #endif

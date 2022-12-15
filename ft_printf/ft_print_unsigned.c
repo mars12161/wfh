@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printperc.c                                     :+:      :+:    :+:   */
+/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 16:29:01 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/15 13:54:44 by mschaub          ###   ########.fr       */
+/*   Created: 2022/12/15 17:40:46 by mschaub           #+#    #+#             */
+/*   Updated: 2022/12/15 18:11:43 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printperc(void)
+int	ft_print_unsigned(unsigned int num)
 {
-	write(1, "%", 1);
-	return (1);
+	
 }

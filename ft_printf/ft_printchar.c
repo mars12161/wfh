@@ -6,13 +6,14 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:19:11 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/14 16:34:19 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/15 14:42:24 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printchar(int c)
+int	ft_printchar(int c)
 {
 	write(1, &c, 1);
+	return (1);
 }
