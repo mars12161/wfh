@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:34:20 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/15 17:28:33 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/16 15:46:40 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,4 @@ int	ft_printnbr(int n)
 	len = ft_printstr(nbr);
 	free(nbr);
 	return (len);
-}
-
-int	main(void)
-{
-	ft_printnbr(455);
 }

@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 14:06:14 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/15 17:24:09 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/16 16:42:13 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_len_of_print(va_list args, const char format)
 	else if (format == 'i' || format == 'd')
 		len += ft_printnbr(va_arg(args, int));
 	else if (format == 'u')
-		len += 1;
+		len += ft_print_unsigned(va_arg(args, unsigned int));
 	else if (format == 'x' || format == 'X')
 		len += ft_printhex(va_arg(args, unsigned int), format);
 	else if (format == '%')
@@ -56,4 +56,14 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(args);
 	return (len);
+}
+
+#include <stdio.h>
+
+int	main(void)
+{
+	int test = ft_printf("hallo %u", 255);
+	printf("\n");
+	int test1 = printf("hallo %u", 255);
+	printf("\n%i\n%i\n", test, test1);
 }

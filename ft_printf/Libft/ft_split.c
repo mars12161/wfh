@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 14:09:27 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/12 12:21:57 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/16 15:22:44 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,21 +57,19 @@ static char	**ft_my_malloc(const char *s, char c)
 	char	**ret;
 
 	ret = malloc(sizeof(char *) * (ft_count_word(s, c) + 1));
-	if (!ret)
-		return (NULL);
 	return (ret);
 }
 
 char	**ft_split(const char *s, char c)
 {
-	char	**ret;
 	size_t	len;
 	size_t	i;
+	char	**ret;
 
-	if (!s)
-		return (NULL);
 	i = 0;
 	ret = ft_my_malloc(s, c);
+	if (!ret)
+		return (NULL);
 	while (*s)
 	{
 		if (*s != c)

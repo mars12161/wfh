@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 14:22:01 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/14 16:05:23 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/15 13:06:01 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
     #include <string.h>
     #include <assert.h>
     #include <fcntl.h>
-    #include "libft.h"
+	#include "libft.h"
+	#include <bsd/string.h>
 
 void	print_string_arr(char **arr)
 {
@@ -271,10 +272,10 @@ int main(void)
 
     //ft_strlen
     printf("Test ft_strlen..\n");
-    char str1[] = "42berlin";
-    char str2[] = " this is a string";
-    assert(ft_strlen(str1) == strlen(str1));
-    assert(ft_strlen(str2) == strlen(str2));
+    char strlen1[] = "42berlin";
+    char strlen2[] = " this is a string";
+    assert(ft_strlen(strlen1) == strlen(strlen1));
+    assert(ft_strlen(strlen2) == strlen(strlen2));
     printf("ft_strlen successful...\n\n");
 
     //ft_strmapi
@@ -293,4 +294,77 @@ int main(void)
     assert(ft_strncmp(test3, test4, 8) == strncmp(test3, test4, 8));
     printf("ft_strncmp successful...\n\n");
 
+	//ft_strnstr
+	printf("Test ft_strnstr..\n");
+	char big[] = "helloworld";
+	char little1[] = "low";
+	char little2[] = "xx";
+	char little3[] = "helloworldX";
+
+	assert(strcmp(ft_strnstr(big, little1, 10), "loworld") == 0);
+	assert(ft_strnstr(big, little2, 10) == 0);
+	assert(ft_strnstr(big, little3, 10) == 0);
+	printf("ft_strnstr successful...\n\n");
+
+	//ft_strrchr
+	printf("Test ft_strrchr..\n");
+	char strrchr[] = "Hallo";
+	assert(ft_strrchr(strchr, 'x') == 0);
+	assert(strcmp(ft_strrchr(strrchr, 'l'), "lo") == 0);
+	printf("ft_strrchr successful...\n\n");
+
+	//ft_strtrim
+	printf("Test ft_strtrim..\n");
+	char trim1[] = "hello world";
+	char trim2[] = "tehello world";
+	char trim3[] = "hello worldtev";
+	char trim4[] = "thello worldev";
+	char trim5[] = "tev";
+	assert(strcmp(ft_strtrim(trim1, "tev"), "hello world") == 0);
+	assert(strcmp(ft_strtrim(trim2, "tev"), "hello world") == 0);
+	assert(strcmp(ft_strtrim(trim3, "tev"), "hello world") == 0);
+	assert(strcmp(ft_strtrim(trim4, "tev"), "hello world") == 0);
+	assert(strcmp(ft_strtrim(trim5, "tev"), "") == 0);
+	printf("ft_strtrim successful...\n\n");
+
+	//ft_substr
+	printf("Test ft_substr..\n");
+	char s7[] = "hello world";
+	char *s8;
+	char *s9;
+	char *s10;
+	s8 = ft_substr(s7, 4, 100);
+	s9 = ft_substr(s7, 0, 2);
+	s10 = ft_substr(s7, 100, 8);
+	assert(strcmp(s8, "o world") == 0);
+	assert(strcmp(s9, "he") == 0);
+	assert(strcmp(s10, "\0") == 0);
+	printf("ft_substr successful...\n\n");
+
+	//ft_tolower
+	printf("Test ft_tolower..\n");
+	assert(ft_tolower(' ') == ' ');
+	assert(ft_tolower('9') == '9');
+	assert(ft_tolower('/') == '/');
+	assert(ft_tolower(':') == ':');
+	assert(ft_tolower('a') == 'a'); 
+	assert(ft_tolower('A') == 'a');
+	assert(ft_tolower('Z') == 'z');
+	assert(ft_tolower('T') == 't');
+	printf("ft_tolower successful...\n\n");
+
+	//ft_toupper
+	printf("Test ft_toupper");
+	assert(ft_toupper(' ') == ' ');
+	assert(ft_toupper('9') == '9');
+	assert(ft_toupper('/') == '/');
+	assert(ft_toupper(':') == ':');
+	assert(ft_toupper('A') == 'A'); 
+	assert(ft_toupper('a') == 'A');
+	assert(ft_toupper('z') == 'Z');
+	assert(ft_toupper('t') == 'T');
+	printf("ft_toupper successful...\n\n");
+
+	printf("Passed all tests\n\n");
+	
 }

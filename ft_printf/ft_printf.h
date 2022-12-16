@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:12:56 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/15 17:18:16 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/16 16:35:02 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ int		ft_printstr(char *str);
 int		ft_printchar(int c);
 int		ft_printperc(void);
 int		ft_printhex(unsigned int num, const char format);
+int	    ft_printnbr(int n);
+int	    ft_print_unsigned(unsigned int i);
 
 #endif
