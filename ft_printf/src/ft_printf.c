@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 14:06:14 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/16 16:42:13 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/17 16:14:32 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int	ft_len_of_print(va_list args, const char format)
 	else if (format == 's')
 		len += ft_printstr(va_arg(args, char *));
 	else if (format == 'p')
-		len += 1;
+		len += ft_printptr(va_arg(args, unsigned long long));
 	else if (format == 'i' || format == 'd')
 		len += ft_printnbr(va_arg(args, int));
 	else if (format == 'u')
 		len += ft_print_unsigned(va_arg(args, unsigned int));
 	else if (format == 'x' || format == 'X')
-		len += ft_printhex(va_arg(args, unsigned int), format);
+		len += ft_printhex(va_arg(args, unsigned long long), format);
 	else if (format == '%')
 		len += ft_printperc();
 	return (len);
@@ -62,8 +62,12 @@ int	ft_printf(const char *str, ...)
 
 int	main(void)
 {
-	int test = ft_printf("hallo %u", 255);
+	int test = 12; //ft_printf("hallo %x", i);
 	printf("\n");
-	int test1 = printf("hallo %u", 255);
-	printf("\n%i\n%i\n", test, test1);
+	int test1 = ft_printf("Das ist ein Pointer lol rofl 420\n%p\n", &test);
+	printf("\n");
+	int test2 = printf("Das ist ein Pointer lol rofl 420\n%p\n", &test);
+	printf("%p\n", &test);
+	printf("%i\n", test1);
+	printf("%i\n", test2);
 }

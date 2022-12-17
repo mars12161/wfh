@@ -6,14 +6,13 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:56:52 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/15 15:40:33 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/17 16:29:37 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "Libft/libft.h"
 
-int	ft_hexlen(unsigned int num)
+static int	ft_hexlen(unsigned long long num)
 {
 	int	i;
 
@@ -26,10 +25,27 @@ int	ft_hexlen(unsigned int num)
 	return (i);
 }
 
-void	ft_writehex(unsigned int num, const char format)
+static void	ft_revstr(char *str)
 {
-	int		remainder;
-	int		quotient;
+	size_t	i;
+	size_t	len;
+	char	tmp;
+
+	len = ft_strlen(str);
+	i = 0;
+	while (i < len / 2)
+	{
+		tmp = str[i];
+		str[i] = str[len - i - 1];
+		str[len - i - 1] = tmp;
+		i++;
+	}
+}
+
+void	ft_writehex(unsigned long long num, const char format)
+{
+	unsigned long long	remainder;
+	unsigned long long	quotient;
 	int		i;
 	char	*hex;
 
@@ -49,16 +65,18 @@ void	ft_writehex(unsigned int num, const char format)
 		else if (format == 'X')
 			hex[i++] = (remainder - 10) + 'A';
 	}
-	hex[i] == '\0';
+	ft_revstr(hex);
+	hex[i] = '\0';
 	i = 0;
 	while (hex[i] != '\0')
 	{
 		write(1, &hex[i], 1);
 		i++;
 	}
+	free(hex);
 }
 
-int	ft_printhex(unsigned int num, const char format)
+int	ft_printhex(unsigned long long num, const char format)
 {
 	if (num == 0)
 	{

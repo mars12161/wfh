@@ -6,7 +6,7 @@
 #    By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 14:31:34 by mschaub           #+#    #+#              #
-#    Updated: 2022/12/16 17:26:35 by mschaub          ###   ########.fr        #
+#    Updated: 2022/12/17 16:34:48 by mschaub          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,13 @@ OBJS = 		$(SRC:.c=.o)
 
 all: $(NAME)
 
+.c.o:		
+	$(CC) $(CFLAGS) $< -o $(<:.c=.o)
+
 $(NAME): 	$(OBJS)
+	make -C ../Libft
+	cp Libft/libft.a
+	mv libft.a $(NAME)
 	ar -rcs $(NAME) $^
 
 clean:

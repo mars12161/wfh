@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printptr.c                                      :+:      :+:    :+:   */
+/*   ft_printnbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 16:23:11 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/16 13:17:57 by mschaub          ###   ########.fr       */
+/*   Created: 2022/12/15 13:34:20 by mschaub           #+#    #+#             */
+/*   Updated: 2022/12/17 16:28:52 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-//int	ft_ptr_len()
-
-int ft_printptr()
+int	ft_printnbr(int n)
 {
-    return (0);
+	char	*nbr;
+	int		len;
+
+	len = 0;
+	nbr = ft_itoa(n);
+	len = ft_printstr(nbr);
+	free(nbr);
+	return (len);
 }

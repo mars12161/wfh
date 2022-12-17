@@ -1,26 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printnbr.c                                      :+:      :+:    :+:   */
+/*   ft_printptr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 13:34:20 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/16 15:46:40 by mschaub          ###   ########.fr       */
+/*   Created: 2022/12/15 16:23:11 by mschaub           #+#    #+#             */
+/*   Updated: 2022/12/17 15:20:36 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "Libft/libft.h"
 
-int	ft_printnbr(int n)
+static int	ft_ptr_len(unsigned long long u)
 {
-	char	*nbr;
-	int		len;
+    int	len;
 
 	len = 0;
-	nbr = ft_itoa(n);
-	len = ft_printstr(nbr);
-	free(nbr);
+	while (u > 0)
+	{
+		u = u / 16;
+		len++;
+	}
+	return (len);
+
+}
+
+int ft_printptr(unsigned long long ptr)
+{
+	int	len;
+
+	len = 0;
+	if (ptr == 0)
+		len += write(1, "(nil)", 5);
+	else
+	{
+		len += write(1, "0x", 2);
+		ft_writehex(ptr, 'x');
+		len += ft_ptr_len(ptr);
+	}
 	return (len);
 }
