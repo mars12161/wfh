@@ -1,43 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printstr.c                                      :+:      :+:    :+:   */
+/*   ft_printptr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 16:24:58 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/15 17:23:44 by mschaub          ###   ########.fr       */
+/*   Created: 2022/12/15 16:23:11 by mschaub           #+#    #+#             */
+/*   Updated: 2022/12/18 15:06:54 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_putstr(char *str)
+/* static int	ft_ptr_len(unsigned long long u)
 {
-	int	i;
+	int	len;
 
-	i = 0;
-	while (str[i])
+	len = 0;
+	while (u > 0)
 	{
-		write(1, &str[i], 1);
-		i++;
+		u = u / 16;
+		len++;
 	}
-}
+	return (len);
+} */
 
-int	ft_printstr(char *str)
+int	ft_printptr(unsigned long long ptr)
 {
-	int	i;
+	int	len;
 
-	i = 0;
-	if (str == NULL)
+	len = 0;
+	if (ptr == 0)
+		len += write(1, "(nil)", 5);
+	else
 	{
-		ft_putstr("(null)");
-		return (6);
+		len += write(1, "0x", 2);
+		len += ft_printhex(ptr, 'x');
 	}
-	while(str[i])
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
-	return (i);
+	return (len);
 }

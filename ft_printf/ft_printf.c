@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 14:06:14 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/17 16:14:32 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/18 12:55:03 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	ft_printf(const char *str, ...)
 	return (len);
 }
 
-#include <stdio.h>
+/* #include <stdio.h>
 
 int	main(void)
 {
@@ -70,4 +70,4 @@ int	main(void)
 	printf("%p\n", &test);
 	printf("%i\n", test1);
 	printf("%i\n", test2);
-}
+} */

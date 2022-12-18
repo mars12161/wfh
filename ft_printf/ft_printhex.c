@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:56:52 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/17 16:29:37 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/18 15:06:35 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,24 @@ static void	ft_revstr(char *str)
 	}
 }
 
+static void	printitout(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+}
+
 void	ft_writehex(unsigned long long num, const char format)
 {
+	int					i;
+	char				*hex;
 	unsigned long long	remainder;
 	unsigned long long	quotient;
-	int		i;
-	char	*hex;
 
 	quotient = num;
 	i = 0;
@@ -67,12 +79,7 @@ void	ft_writehex(unsigned long long num, const char format)
 	}
 	ft_revstr(hex);
 	hex[i] = '\0';
-	i = 0;
-	while (hex[i] != '\0')
-	{
-		write(1, &hex[i], 1);
-		i++;
-	}
+	printitout(hex);
 	free(hex);
 }
 

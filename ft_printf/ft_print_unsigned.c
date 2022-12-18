@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 17:40:46 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/16 16:43:14 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/18 12:07:56 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_unsigned_itoa(unsigned int num)
 	{
 		ret[len - 1] = num % 10 + '0';
 		num = num / 10;
-		len--; 
+		len--;
 	}
 	return (ret);
 }

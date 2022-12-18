@@ -6,7 +6,7 @@
 #    By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 14:31:34 by mschaub           #+#    #+#              #
-#    Updated: 2022/12/17 16:34:48 by mschaub          ###   ########.fr        #
+#    Updated: 2022/12/18 14:30:20 by mschaub          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,15 @@ NAME = 		libftprintf.a
 
 CC = 		cc
 
-CFLAGS = 	-Wall -Wextra -Werror -I
+CFLAGS = 	-c -Wall -Wextra -Werror -I
 
 RM = 		rm -f
 
-SRC = 		ft_print_unsigned.c \
+LIBFT = ./Libft/libft.a
+
+SRC = 		ft_printf.c \
+			ft_print_unsigned.c \
 			ft_printchar.c \
-			ft_printf.c \
 			ft_printhex.c \
 			ft_printnbr.c \
 			ft_printperc.c \
@@ -31,19 +33,19 @@ OBJS = 		$(SRC:.c=.o)
 
 all: $(NAME)
 
-.c.o:		
-	$(CC) $(CFLAGS) $< -o $(<:.c=.o)
 
 $(NAME): 	$(OBJS)
-	make -C ../Libft
-	cp Libft/libft.a
-	mv libft.a $(NAME)
+	make -C ./Libft
+	cp ./Libft/libft.a $(NAME)
+	$(CC) $(CFLAGS) Libft/ft_printf.h $(SRC)
 	ar -rcs $(NAME) $^
 
 clean:
+	make clean -C ./Libft
 	$(RM) $(OBJS)
 
 fclean: clean
+	make fclean -C ./Libft
 	$(RM) $(NAME)
 
 re: fclean all
