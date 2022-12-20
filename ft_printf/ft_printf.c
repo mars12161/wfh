@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 14:06:14 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/18 12:55:03 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/20 16:11:29 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_len_of_print(va_list args, const char format)
 	else if (format == 'u')
 		len += ft_print_unsigned(va_arg(args, unsigned int));
 	else if (format == 'x' || format == 'X')
-		len += ft_printhex(va_arg(args, unsigned long long), format);
+		len += ft_printhex(va_arg(args, unsigned int), format);
 	else if (format == '%')
 		len += ft_printperc();
 	return (len);

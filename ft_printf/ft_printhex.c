@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:56:52 by mschaub           #+#    #+#             */
-/*   Updated: 2022/12/18 15:06:35 by mschaub          ###   ########.fr       */
+/*   Updated: 2022/12/20 19:28:15 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 static int	ft_hexlen(unsigned long long num)
 {
-	int	i;
+	int					i;
+	unsigned long long	number;
 
 	i = 0;
-	while (num > 0)
+	number = num;
+	while (number > 0)
 	{
-		num = num / 16;
+		number = number / 16;
 		i++;
 	}
 	return (i);
@@ -44,9 +46,11 @@ static void	ft_revstr(char *str)
 
 static void	printitout(char *str)
 {
-	int	i;
+	int		i;
+	char	*str1;
 
 	i = 0;
+	str1 = str;
 	while (str[i] != '\0')
 	{
 		write(1, &str[i], 1);
