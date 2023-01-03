@@ -6,55 +6,86 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:06:25 by mschaub           #+#    #+#             */
-/*   Updated: 2023/01/02 17:47:21 by mschaub          ###   ########.fr       */
+/*   Updated: 2023/01/03 18:33:12 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-/* char	*get_next_line(int fd)
+char    *ft_newremainder(char *remainder)
 {
-	if (fd < 0)
-		return (NULL);
-	static char	*line;
-	//text = read(fd, )
-	//if !text
-	//	return (NULL);
-	line = ft_read_line(text);
+    int		i;
+    int		j;
+	char	*ret;
 
+	i = 0;
+	if (remainder[i] && remainder[i] != '\n')
+		i++;
+	if (!remainder[i])
+		return (NULL);
+	ret = ft_calloc(sizeof(char), i + 2);
+	if (!ret)
+		return (NULL);
+	j = 0;
+	i++;
+	while (remainder[i])
+		ret[j++] = remainder[i++];
+	return (ret);
+}
+
+char	*ft_makeremainder(int fd, char *remainder)
+{
+	char	*buff;
+	int		bytes;
+
+	buff = ft_calloc(sizeof(char), BUFFER_SIZE + 1);
+	if (!buff)
+		return (NULL);
+	bytes = 1;
+	while (!ft_strchr(remainder, '\n') && bytes != 0)
+	{
+		bytes = read(fd, buff, BUFFER_SIZE);
+		if (bytes == -1)
+		{
+			free(buff);
+			return (NULL);
+		}
+		remainder = ft_strjoin(remainder, buff);
+	}
+	free(buff);
+	return (remainder);
+}
+
+char	*get_next_line(int fd)
+{
+	static char	*remainder;
+	char		*line;
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	remainder = ft_makeremainder(fd, remainder);
+	if (!remainder)
+		return (NULL);
+	line = ft_read_line(remainder);
+	remainder = ft_newremainder(remainder);
 	return (line);
-} */
+}
 
 
 
 #include <stdio.h>
 
 int main() {
-    // Open the file in read-only mode
-    int fd = open("test.txt", O_RDONLY);
-
-    // Check if the file was successfully opened
-    if (fd < 0) {
-        printf("Error opening file!\n");
-        return 1;
-    }
-
-    // Read the contents of the file
-    char buffer[1024];
-    int bytes_read;
-    while ((bytes_read = read(fd, buffer, 1024)) > 0) {
-        char *test = ft_read_line(buffer);
-        printf("%s", test);
-    }
-
-    // Check if there was an error reading the file
-    if (bytes_read < 0) {
-        printf("Error reading file!\n");
-        return 1;
-    }
-
-    // Close the file
-    close(fd);
+    
+	char	*line;
+	int i = 1;
+	
+	int fd = open("test.txt", O_RDONLY);
+	while (i < 5)
+	{
+		line = get_next_line(fd);
+		printf("line [%02d]: %s\n", i, line);
+		i++;
+	}
 
     return 0;
 }
