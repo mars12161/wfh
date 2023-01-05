@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:27:26 by mschaub           #+#    #+#             */
-/*   Updated: 2023/01/03 18:28:01 by mschaub          ###   ########.fr       */
+/*   Updated: 2023/01/04 15:11:43 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,13 @@ char	*ft_strjoin(char *s1, char *s2)
 		s1 = ft_calloc(sizeof(char), 1);
 	if (!s1 && !s2)
 		return (NULL);
-	ret = ft_calloc(sizeof(*s1), (ft_strlen(s1) + ft_strlen(s2) + 1));
+	ret = ft_calloc(sizeof(char), (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!ret)
 		return (NULL);
-	i = 0;
+	i = -1;
 	j = 0;
 	if (s1)
-		while (s1[i++])
+		while (s1[++i])
 			ret[i] = s1[i];
 	while (s2[j])
 		ret[i++] = s2[j++];
